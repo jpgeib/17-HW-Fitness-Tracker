@@ -6,10 +6,14 @@ const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-//Middlewares?
+//Middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Setting up routes
 
 app.use(routes);
 
-app.listen(PORT, () => console.log("Server started on PORT" + PORT));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness_tracker", { useNewUrlParser: true, useUnifiedTopology: true });
+
+app.listen(PORT, () => console.log("Server started on PORT " + PORT));
