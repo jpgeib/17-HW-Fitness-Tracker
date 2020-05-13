@@ -27,6 +27,7 @@ router.get("/api/workouts/range", (req, res) => {
 });
 
 router.post("/api/workouts", (req, res) => {
+    console.log(req.body, "Inside API Routes");
     workout.create(req.body).then(
         dbWorkout => {
             res.json(dbWorkout);

@@ -1,11 +1,14 @@
 // basic boilerplate
 const express = require("express");
 const mongoose = require("mongoose");
+const logger = require("morgan"); 
 
 const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+app.use(logger("dev"));
 
 //Middlewares
 app.use(express.json());
