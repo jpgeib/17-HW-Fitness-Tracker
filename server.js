@@ -1,6 +1,7 @@
 // basic boilerplate
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+
 const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
@@ -14,6 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness_tracker", { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.listen(PORT, () => console.log("Server started on PORT " + PORT));
